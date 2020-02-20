@@ -8,3 +8,4 @@
 1. Download PyCharm from https://www.jetbrains.com/pycharm/download/#section=windows
 2. open python file in PyCharm
 3. Add module paho.mqtt to PyCharm
+4. change the broker address to your local pc IP address
