@@ -1,0 +1,59 @@
+version: '3'
+
+services:
+  maindatahub:
+    image: maindatahub    
+    network_mode: bridge
+    container_name: consoledatahub
+    ports:
+        - 5001:5001
+
+  mqtt:
+    image: toke/mosquitto
+    network_mode: bridge
+    container_name: mqtt
+    expose:
+      - 1883
+    ports:
+      - 1883:1883
+    restart: always
+
+  mysql:
+    image: mysql
+    network_mode: bridge
+    container_name: mysql-sensor-datahub
+    expose:
+      - 5300
+    ports:
+      - 5300:3306    
+    environment:
+      MYSQL_DATABASE: datahub
+      MYSQL_ROOT_PASSWORD: admin12345
+
+  gpssensor:
+    image: gpssensor
+    network_mode: bridge
+    container_name: gpssensor
+    expose:
+      - 5002
+    ports:
+      - 5002:5002
+
+  tempsensor:
+    image: tempsensor
+    network_mode: bridge
+    container_name: tempsensor
+    expose:
+      - 5003
+    ports:
+      - 5003:5003
+
+  imusensor:
+    image: imusensor
+    network_mode: bridge
+    container_name: imusensor
+    expose:
+      - 5004
+    ports:
+      - 5004:5004
+    

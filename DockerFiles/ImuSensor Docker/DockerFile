@@ -1,0 +1,11 @@
+FROM python:3
+
+# Copy and install the library
+WORKDIR /pack
+COPY pack/ ./
+
+ADD ImuSensor.py /
+
+RUN pip install paho-mqtt
+
+CMD [ "python", "./ImuSensor.py" ]

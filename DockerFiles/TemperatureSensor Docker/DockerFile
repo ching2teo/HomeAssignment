@@ -1,0 +1,7 @@
+FROM python:3
+
+ADD TemperatureSensor.py /
+
+RUN pip install paho-mqtt
+
+CMD [ "python", "./TemperatureSensor.py" ]
