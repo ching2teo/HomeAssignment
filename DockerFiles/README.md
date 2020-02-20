@@ -1,4 +1,4 @@
-
+# Create Image from DockerFile
 1.	Create image for TemperatureSensor.py
     a.	Open Window PowerShell as administrator
     b.	Change director to python script folder
