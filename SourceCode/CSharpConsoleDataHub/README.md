@@ -4,11 +4,12 @@ C# console application:
 2. connect to MySql to keep message that sent from sensor.
 
 How to setup:
-1. Open the source code in Visual Studio 2019
-2. Right click solution and restore nuget package:
+1. Unzip MainDataHub.zip 
+2. Open the source code in Visual Studio 2019
+3. Right click solution and restore nuget package:
 	 a. M2MqttDotnetCore
 	 b. MySql.Data
 	 c. Microsoft.VisiualStudio.Azure.Containers.Tools.Targets
-3. Set MainDataHub Project as startup project.
-4. Modify the App.config file:
+4. Set MainDataHub Project as startup project.
+5. Modify the App.config file:
 	 a. MqttBroker and SQLServer value to your pc IP address
