@@ -1,0 +1,36 @@
+version: '3.4'
+
+services:
+  maindatahub:
+    image: ${DOCKER_REGISTRY-}maindatahub
+    build:
+      context: .
+      dockerfile: MainDataHub/Dockerfile
+    network_mode: bridge
+    container_name: consoledatahub
+    ports:
+        - 5001:5001
+
+  mqtt:
+    image: toke/mosquitto
+    network_mode: bridge
+    container_name: mqtt2
+    expose:
+      - 1883
+    ports:
+      - 1883:1883
+    restart: unless-stopped
+
+  mysql:
+    image: mysql-sensor-datahub
+    network_mode: bridge
+    container_name: mysql-sensor-datahub
+    expose:
+      - 5300
+    ports:
+      - 5300:3306
+    environment:
+      MYSQL_DATABASE: datahub
+      MYSQL_ROOT_PASSWORD: admin12345
+   
+    
